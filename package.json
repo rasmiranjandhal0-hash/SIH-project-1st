@@ -1,0 +1,24 @@
+{
+  "name": "karigar-artisan-platform",
+  "version": "1.0.0",
+  "description": "Karigar: Direct-from-village Indian artisan platform with voice-AI merchant interface and authentic buyer store",
+  "main": "server/server.js",
+  "scripts": {
+    "start": "node server/server.js",
+    "dev": "node server/server.js",
+    "whatsapp:link": "node -e \"require('./whatsapp-client').client.initialize()\""
+  },
+  "keywords": [],
+  "type": "commonjs",
+  "dependencies": {
+    "@google/generative-ai": "^0.24.1",
+    "@supabase/supabase-js": "^2.116.0",
+    "cors": "^2.8.6",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "multer": "^2.3.0",
+    "qrcode": "^1.5.4",
+    "qrcode-terminal": "^0.12.0",
+    "whatsapp-web.js": "^1.34.7"
+  }
+}
