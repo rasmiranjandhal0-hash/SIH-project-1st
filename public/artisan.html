@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="hi" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="theme-color" content="#14171F">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <title>कारीगर AI (Kaarigar AI) | Seller Mobile App</title>
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            gold: {
+              300: '#F5E1A4',
+              400: '#E5C158',
+              500: '#D4AF37',
+              600: '#B89420',
+              700: '#8C6F12'
+            },
+            ochre: {
+              300: '#FFD1B3',
+              400: '#F0997B',
+              500: '#E07A5F',
+              600: '#C85A32',
+              700: '#A53E1B'
+            },
+            obsidian: '#0B0D11',
+            surface: '#14171F',
+            card: '#1B202C',
+            borderDark: '#283042'
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body class="bg-obsidian text-slate-100 min-h-screen flex flex-col selection:bg-ochre-500 selection:text-white pb-20 sm:pb-8">
+
+  <!-- ========================================================================= -->
+  <!-- MOBILE SELLER APP HEADER (NATIVE APP FEEL)                               -->
+  <!-- ========================================================================= -->
+  <header class="sticky top-0 z-50 bg-surface/95 backdrop-blur-md border-b border-borderDark px-4 py-3 transition-all shadow-xl">
+    <div class="max-w-md sm:max-w-2xl mx-auto flex items-center justify-between gap-3">
+      
+      <!-- Brand & Seller Badge -->
+      <div class="flex items-center gap-2.5">
+        <div class="w-10 h-10 rounded-2xl bg-gradient-to-tr from-ochre-600 via-gold-500 to-amber-200 flex items-center justify-center text-obsidian shadow-lg shadow-ochre-600/30 flex-shrink-0">
+          <i class="fa-solid fa-hands-holding-circle text-xl"></i>
+        </div>
+        <div>
+          <div class="flex items-center gap-1.5">
+            <span class="text-base sm:text-lg font-bold font-luxury tracking-wider text-white">KAARIGAR <span class="text-gold-500">AI</span></span>
+            <span class="text-[9px] px-1.5 py-0.5 rounded-full bg-emerald-950/80 text-emerald-400 font-bold border border-emerald-500/40 uppercase">SELLER APP</span>
+          </div>
+          <p class="text-[10px] text-slate-300 font-hindi">कारीगर केंद्र • वर्चुअल मैनेजर</p>
+        </div>
+      </div>
+
+      <!-- Quick Audio & WhatsApp Actions -->
+      <div class="flex items-center gap-2">
+        <button onclick="speakHindiGuidance()" class="flex items-center gap-1 px-3 py-1.5 rounded-xl bg-ochre-600 hover:bg-ochre-500 text-white font-bold text-xs shadow transition active:scale-95">
+          <i class="fa-solid fa-volume-high"></i>
+          <span>सुनें</span>
+        </button>
+
+        <button onclick="openWhatsAppModal()" class="flex items-center gap-1 px-2.5 py-1.5 rounded-xl bg-emerald-950/70 border border-emerald-500/40 text-emerald-300 text-xs font-semibold">
+          <i class="fa-brands fa-whatsapp text-emerald-400"></i>
+          <span class="hidden xs:inline">WhatsApp</span>
+        </button>
+
+        <a href="/" target="_blank" class="p-1.5 rounded-xl bg-card border border-borderDark text-gold-400 text-xs" title="Open Buyer Store in new tab">
+          <i class="fa-solid fa-arrow-up-right-from-square"></i>
+        </a>
+      </div>
+
+    </div>
+  </header>
+
+
+  <!-- ========================================================================= -->
+  <!-- MOBILE SELLER APP BODY (SINGLE-COLUMN TOUCH OPTIMIZED)                    -->
+  <!-- ========================================================================= -->
+  <main class="flex-1 max-w-md sm:max-w-2xl mx-auto w-full px-3.5 sm:px-4 py-4 space-y-5">
+    
+    <!-- Welcome Card with Cluster/SHG Mode Switcher -->
+    <div class="bg-gradient-to-r from-ochre-950/70 to-surface border-2 border-ochre-500/40 rounded-2xl p-4 sm:p-6 flex items-center justify-between gap-3 shadow-lg">
+      <div class="space-y-0.5">
+        <span class="text-[10px] font-bold text-ochre-300 uppercase tracking-wider flex items-center gap-1">
+          <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span> मोबाइल विक्रेता ऐप (Seller App)
+        </span>
+        <h1 class="text-lg sm:text-xl font-bold font-luxury text-white">बोलकर सामान बेचें</h1>
+        <p class="text-[11px] text-slate-300">बिना लिखे, सिर्फ फोटो खींचें और बोलकर 24/7 बेचें।</p>
+      </div>
+
+      <button id="btn-toggle-shg" onclick="toggleSHGMode()" class="flex items-center gap-1.5 px-3 py-2 rounded-xl bg-card border border-borderDark text-slate-200 font-bold text-xs transition flex-shrink-0">
+        <i class="fa-solid fa-users text-gold-400 text-xs"></i>
+        <span id="shg-toggle-text">SHG मोड</span>
+      </button>
+    </div>
+
+    <!-- Festival Demand Alert (High Visibility on Mobile) -->
+    <div id="artisan-forecast-banner" class="bg-gradient-to-r from-amber-950/80 via-surface to-surface border border-amber-500/40 rounded-2xl p-3.5 flex items-start justify-between gap-3 shadow-md">
+      <div class="flex items-start gap-2.5">
+        <div class="w-8 h-8 rounded-xl bg-amber-500/20 text-amber-400 flex items-center justify-center text-sm flex-shrink-0 mt-0.5">
+          <i class="fa-solid fa-bullhorn"></i>
+        </div>
+        <div class="space-y-0.5">
+          <div class="flex items-center gap-1.5">
+            <span class="text-[11px] font-bold text-amber-400 uppercase">त्यौहार मांग अलर्ट</span>
+            <span class="text-[9px] px-1.5 py-0.5 rounded bg-red-950 text-red-300 font-bold border border-red-500/30">+240% मांग</span>
+          </div>
+          <p id="forecast-action-text" class="text-[11px] text-slate-300 leading-tight">
+            दीपावली में 42 दिन शेष हैं। मिट्टी के दीयों व कलश की भारी मांग रहेगी। अभी से 60-80 पीस तैयार रखें।
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Step 1: 📷 Snap Photo (Engine A: AI Image Studio) -->
+    <div class="bg-card border border-borderDark rounded-2xl p-4 sm:p-6 space-y-3.5 shadow">
+      <div class="flex items-center justify-between">
+        <div class="flex items-center gap-2.5">
+          <span class="w-7 h-7 rounded-full bg-gold-500 text-obsidian font-bold flex items-center justify-center text-xs">1</span>
+          <div>
+            <h2 class="text-sm sm:text-base font-bold text-white">फोटो खींचें या बदलें (Snap Photo)</h2>
+            <p class="text-[10px] text-slate-400">AI इमेज स्टूडियो: बैकग्राउंड हटाकर स्टूडियो फिनिश देगा</p>
+          </div>
+        </div>
+        <span class="text-[10px] text-gold-400 font-mono">Engine A</span>
+      </div>
+
+      <!-- Visual Preview Area -->
+      <div class="relative w-full aspect-[16/10] rounded-xl border-2 border-dashed border-borderDark bg-surface flex flex-col items-center justify-center overflow-hidden">
+        <img id="artisan-preview-image" src="https://images.unsplash.com/photo-1578749556568-bc2c40e68b61?auto=format&fit=crop&w=800&q=80" alt="Artifact" class="w-full h-full object-cover transition duration-500">
+        <div id="artisan-studio-overlay" class="absolute inset-0 bg-radial pointer-events-none studio-lighting-effect"></div>
+
+        <!-- Controls Float -->
+        <div class="absolute bottom-2.5 inset-x-2.5 flex items-center justify-between gap-2 bg-obsidian/90 backdrop-blur-md p-2 rounded-xl border border-white/10">
+          <button onclick="triggerFileInput()" class="px-3.5 py-2 rounded-lg bg-gold-500 text-obsidian text-xs font-bold flex items-center gap-1.5 active:scale-95 transition">
+            <i class="fa-solid fa-camera"></i>
+            <span>कैमरा / नया फोटो</span>
+          </button>
+          <input type="file" id="artisan-file-input" accept="image/*" class="hidden" onchange="handleImageUpload(event)">
+
+          <div class="flex items-center gap-1 text-[10px]">
+            <button onclick="selectSampleImage('terracotta')" class="px-2 py-1 rounded bg-surface border border-borderDark text-slate-200">मिट्टी</button>
+            <button onclick="selectSampleImage('painting')" class="px-2 py-1 rounded bg-surface border border-borderDark text-slate-200">मधुबनी</button>
+            <button onclick="selectSampleImage('silk')" class="px-2 py-1 rounded bg-surface border border-borderDark text-slate-200">साड़ी</button>
+            <button onclick="selectSampleImage('wood')" class="px-2 py-1 rounded bg-surface border border-borderDark text-slate-200">खिलौना</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Studio Lighting Toggle -->
+      <div class="flex items-center justify-between bg-surface p-3 rounded-xl border border-borderDark">
+        <div class="flex items-center gap-2">
+          <i class="fa-solid fa-wand-magic-sparkles text-gold-400 text-sm"></i>
+          <div>
+            <div class="text-xs font-semibold text-white">AI स्टूडियो लाइटिंग (Studio Finish)</div>
+            <div class="text-[10px] text-slate-400">कच्ची जमीन वाली फोटो को चमकदार बनाएं</div>
+          </div>
+        </div>
+        <label class="relative inline-flex items-center cursor-pointer">
+          <input type="checkbox" id="toggle-studio-lighting" class="sr-only peer" checked onchange="toggleStudioLighting(this.checked)">
+          <div class="w-9 h-5 bg-slate-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-gold-500"></div>
+        </label>
+      </div>
+    </div>
+
+    <!-- Step 2: 🎤 Speak About It (Engine B: Multilingual Auto-Cataloger) -->
+    <div class="bg-card border border-borderDark rounded-2xl p-4 sm:p-6 space-y-4 shadow">
+      <div class="flex items-center justify-between">
+        <div class="flex items-center gap-2.5">
+          <span class="w-7 h-7 rounded-full bg-ochre-500 text-white font-bold flex items-center justify-center text-xs">2</span>
+          <div>
+            <h2 class="text-sm sm:text-base font-bold text-white">माइक दबाकर बोलें (Speak About It)</h2>
+            <p class="text-[10px] text-slate-300">अपनी भाषा में बोलें: क्या सामान है, कितना दाम चाहिए।</p>
+          </div>
+        </div>
+        <span class="text-[10px] text-ochre-400 font-mono">Engine B</span>
+      </div>
+
+      <!-- Giant Touch Mic Button -->
+      <div class="flex flex-col items-center justify-center py-4 space-y-2.5">
+        <button id="btn-artisan-mic" onclick="toggleSpeechRecording()" class="w-28 h-28 sm:w-32 sm:h-32 rounded-full bg-gradient-to-tr from-ochre-600 to-amber-500 hover:from-ochre-500 hover:to-amber-400 text-white flex flex-col items-center justify-center shadow-2xl shadow-ochre-600/40 transition active:scale-95 group">
+          <i id="mic-icon" class="fa-solid fa-microphone text-3xl group-hover:scale-110 transition"></i>
+          <span id="mic-label" class="text-xs font-bold tracking-wider mt-1">बोलें</span>
+        </button>
+        <p id="mic-status-text" class="text-xs text-slate-300 font-medium text-center max-w-xs">
+          बटन दबाएं और बोलना शुरू करें (या नीचे दिए गए आसान टेस्ट दबाएं)
+        </p>
+      </div>
+
+      <!-- Quick Test Buttons -->
+      <div class="space-y-1.5">
+        <span class="text-[10px] text-slate-400 font-semibold uppercase tracking-wider block">आसान टेस्ट विकल्प:</span>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-2">
+          <button onclick="simulateArtisanVoice('Yeh mitti ka ghada hai do din mein banaya 200 rupaye')" class="p-2.5 rounded-xl bg-surface hover:bg-surface/80 border border-borderDark text-left text-xs text-slate-200 transition">
+            <strong class="text-gold-400 block text-[11px]">🎙️ विकल्प 1 (मिट्टी)</strong>
+            "मिट्टी का घड़ा 200 रुपये"
+          </button>
+          <button onclick="simulateArtisanVoice('Madhubani painting hai teen din lage 350 rupaye')" class="p-2.5 rounded-xl bg-surface hover:bg-surface/80 border border-borderDark text-left text-xs text-slate-200 transition">
+            <strong class="text-gold-400 block text-[11px]">🎙️ विकल्प 2 (मधुबनी)</strong>
+            "मधुबनी पेंटिंग 350 रुपये"
+          </button>
+          <button onclick="simulateArtisanVoice('Kutch ki suti saree char din lage 500 rupaye')" class="p-2.5 rounded-xl bg-surface hover:bg-surface/80 border border-borderDark text-left text-xs text-slate-200 transition">
+            <strong class="text-gold-400 block text-[11px]">🎙️ विकल्प 3 (साड़ी)</strong>
+            "सूती साड़ी 500 रुपये"
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Step 3 & 4: AI Builds Listing + Dynamic Pricing Range -->
+    <div id="ai-result-card" class="hidden bg-surface border border-gold-500/40 rounded-2xl p-4 sm:p-6 space-y-4 shadow-2xl">
+      <div class="flex items-center justify-between border-b border-borderDark pb-3">
+        <span class="text-xs font-bold text-gold-400 uppercase tracking-wider flex items-center gap-1.5">
+          <i class="fa-solid fa-brain"></i> AI ने समझ लिया
+        </span>
+        <button onclick="playVoiceConfirmation()" class="flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-gold-500/20 text-gold-300 text-xs font-semibold">
+          <i class="fa-solid fa-volume-high"></i>
+          <span>सुनें</span>
+        </button>
+      </div>
+
+      <div class="space-y-3">
+        <!-- Dual Language Tabs -->
+        <div class="flex items-center justify-between">
+          <span class="text-[10px] text-slate-400 uppercase font-bold">द्विभाषी विवरण (Bilingual)</span>
+          <div class="flex items-center gap-1 text-[10px]">
+            <button id="btn-lang-en" onclick="switchListingLang('en')" class="px-2 py-0.5 rounded bg-gold-500 text-obsidian font-bold">English</button>
+            <button id="btn-lang-hi" onclick="switchListingLang('hi')" class="px-2 py-0.5 rounded bg-card text-slate-300 hover:text-white font-hindi">हिन्दी</button>
+          </div>
+        </div>
+
+        <div id="listing-en-view" class="space-y-1 text-xs">
+          <h3 id="extracted-title-en" class="font-bold text-white font-luxury text-sm">Hand-Burnished Earthen Terracotta Sacred Vessel</h3>
+          <p id="extracted-subtitle-en" class="text-[11px] text-gold-400">Riverbed Silt Clay • Traditional Firing</p>
+          <p id="extracted-story-en" class="text-[11px] text-slate-300 bg-obsidian/60 p-2.5 rounded-xl border border-borderDark leading-relaxed">
+            Crafted on traditional wheels using mineral-rich clay. Natural cooling keeps water fresh.
+          </p>
+        </div>
+
+        <div id="listing-hi-view" class="hidden space-y-1 text-xs font-hindi">
+          <h3 id="extracted-title-hi" class="font-bold text-white text-sm">हस्तनिर्मित पवित्र वैदिक टेराकोटा कलश</h3>
+          <p id="extracted-subtitle-hi" class="text-[11px] text-gold-400">नदी की शुद्ध गाद मिट्टी • चाक पर हस्तनिर्मित</p>
+          <p id="extracted-story-hi" class="text-[11px] text-slate-300 bg-obsidian/60 p-2.5 rounded-xl border border-borderDark leading-relaxed">
+            प्राकृतिक नदी की मिट्टी से चाक पर हाथ से गढ़ा गया। पानी को बिना बिजली के शीतल रखता है।
+          </p>
+        </div>
+
+        <!-- Dynamic Pricing Output Box -->
+        <div class="bg-obsidian/90 p-3.5 rounded-xl border border-emerald-500/40 space-y-2 text-xs">
+          <div class="flex items-center justify-between">
+            <span class="text-[10px] text-emerald-400 font-bold uppercase">Engine C: Dynamic Pricing</span>
+            <span id="extracted-confidence" class="text-[9px] px-1.5 py-0.5 rounded bg-emerald-950 text-emerald-300 border border-emerald-500/30">94% Confidence</span>
+          </div>
+
+          <div class="flex justify-between items-baseline bg-surface p-2.5 rounded-lg border border-borderDark">
+            <span class="text-slate-300 text-[11px]">अनुशंसित सीमा (Price Range):</span>
+            <span id="extracted-price-range" class="text-base font-bold text-emerald-400 font-luxury">₹240 – ₹340</span>
+          </div>
+
+          <div class="flex justify-between items-baseline text-xs pt-0.5">
+            <span class="text-slate-300">लिस्टिंग रेट (Listing Price):</span>
+            <span id="extracted-recommended-price" class="text-sm font-bold text-gold-400">₹280</span>
+          </div>
+          <div class="flex justify-between items-baseline text-xs text-emerald-400 border-t border-white/5 pt-1">
+            <span class="font-bold">सीधा आपके खाते में (Direct Payout):</span>
+            <span id="extracted-artisan-payout" class="font-bold">₹200 (100%)</span>
+          </div>
+          <p id="extracted-justification" class="text-[9px] text-slate-400 italic pt-0.5">
+            *2 दिन की मेहनत व कच्ची सामग्री के आधार पर निकाला गया।
+          </p>
+        </div>
+
+        <!-- Publish Button -->
+        <button onclick="publishArtisanProduct()" class="w-full py-3.5 rounded-xl bg-gradient-to-r from-emerald-600 to-emerald-500 hover:from-emerald-500 text-white font-bold text-sm shadow-lg shadow-emerald-600/30 transition flex items-center justify-center gap-2 active:scale-95">
+          <i class="fa-solid fa-cloud-arrow-up"></i>
+          <span>अभी लाइव प्रकाशित करें (Publish Live)</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mini Dashboard on Mobile -->
+    <div class="bg-card border border-borderDark rounded-2xl p-4 space-y-3 shadow">
+      <div class="flex items-center justify-between">
+        <h3 class="text-xs font-bold text-white uppercase tracking-wider flex items-center gap-1.5">
+          <i class="fa-solid fa-chart-pie text-gold-400"></i>
+          <span id="dash-title">आपकी बिक्री व कमाई</span>
+        </h3>
+        <span id="dash-total-earnings" class="text-[11px] font-bold text-emerald-400">₹2,840 कुल कमाई</span>
+      </div>
+
+      <div class="grid grid-cols-2 gap-2 text-xs">
+        <div class="bg-surface p-2.5 rounded-xl border border-borderDark">
+          <span class="text-[10px] text-slate-400">लाइव सामान</span>
+          <div id="dash-live-products" class="text-base font-bold text-white mt-0.5">6 पीस</div>
+        </div>
+        <div class="bg-surface p-2.5 rounded-xl border border-borderDark">
+          <span class="text-[10px] text-slate-400">सफल ऑर्डर</span>
+          <div id="dash-orders-count" class="text-base font-bold text-emerald-400 mt-0.5">11 ऑर्डर</div>
+        </div>
+      </div>
+
+      <!-- Pictorial Tracker -->
+      <div class="flex items-center justify-around gap-2 text-[11px] text-slate-300 pt-1">
+        <span>📦 पैक करें</span>
+        <i class="fa-solid fa-chevron-right text-slate-600 text-[9px]"></i>
+        <span>🚚 कूरियर</span>
+        <i class="fa-solid fa-chevron-right text-slate-600 text-[9px]"></i>
+        <span class="text-emerald-400 font-bold">💰 बैंक में जमा</span>
+      </div>
+
+      <!-- Recent Orders & PayPal Activity -->
+      <div class="border-t border-borderDark pt-2.5 space-y-2">
+        <div class="flex items-center justify-between text-[10px] text-slate-400 font-semibold uppercase tracking-wider">
+          <span>हाल के ऑर्डर (Recent Orders)</span>
+          <span class="text-emerald-400">88% सीधा भुगतान</span>
+        </div>
+        <div id="artisan-orders-container" class="space-y-1.5 max-h-40 overflow-y-auto pr-0.5">
+          <div class="text-[11px] text-slate-400 text-center py-2">ऑर्डर लोड हो रहे हैं...</div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+
+  <!-- ========================================================================= -->
+  <!-- STICKY BOTTOM APP NAVIGATION BAR (FOR MOBILE SMARTPHONE USE)              -->
+  <!-- ========================================================================= -->
+  <nav class="fixed bottom-0 inset-x-0 z-50 bg-surface/95 backdrop-blur-md border-t border-borderDark py-2 px-4 sm:hidden flex items-center justify-around text-center">
+    <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="flex flex-col items-center gap-0.5 text-gold-400">
+      <i class="fa-solid fa-camera text-base"></i>
+      <span class="text-[10px] font-bold">बेचें</span>
+    </button>
+    <button onclick="document.getElementById('artisan-forecast-banner').scrollIntoView({behavior: 'smooth'})" class="flex flex-col items-center gap-0.5 text-slate-400 hover:text-white">
+      <i class="fa-solid fa-bullhorn text-base"></i>
+      <span class="text-[10px]">मांग अलर्ट</span>
+    </button>
+    <button onclick="toggleSHGMode()" class="flex flex-col items-center gap-0.5 text-slate-400 hover:text-white">
+      <i class="fa-solid fa-users text-base"></i>
+      <span class="text-[10px]">SHG समूह</span>
+    </button>
+    <button onclick="openWhatsAppModal()" class="flex flex-col items-center gap-0.5 text-emerald-400">
+      <i class="fa-brands fa-whatsapp text-base"></i>
+      <span class="text-[10px]">WhatsApp</span>
+    </button>
+    <a href="/" target="_blank" class="flex flex-col items-center gap-0.5 text-slate-400 hover:text-white">
+      <i class="fa-solid fa-store text-base"></i>
+      <span class="text-[10px]">स्टोर ↗</span>
+    </a>
+  </nav>
+
+
+  <!-- ========================================================================= -->
+  <!-- MODAL: INTERACTIVE SELLER WHATSAPP BOT                                    -->
+  <!-- ========================================================================= -->
+  <div id="modal-whatsapp" class="fixed inset-0 z-50 bg-black/85 backdrop-blur-sm hidden flex items-center justify-center p-3 sm:p-4">
+    <div class="bg-[#111B21] border border-borderDark rounded-3xl max-w-md w-full max-h-[92vh] flex flex-col shadow-2xl relative overflow-hidden">
+      
+      <!-- WhatsApp Header -->
+      <div class="bg-[#202C33] p-3 sm:p-4 flex items-center justify-between border-b border-white/5">
+        <div class="flex items-center gap-2.5">
+          <div class="w-10 h-10 rounded-full bg-emerald-600 flex items-center justify-center text-white text-lg relative">
+            <i class="fa-solid fa-robot"></i>
+            <span class="absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full bg-emerald-400 border-2 border-[#202C33]"></span>
+          </div>
+          <div>
+            <h4 class="font-bold text-white text-sm">Kaarigar AI Business Manager</h4>
+            <p class="text-[10px] text-emerald-400">कंपनी नंबर: +91 6371205518 • ऑनलाइन</p>
+          </div>
+        </div>
+        <div class="flex items-center gap-2">
+          <a href="https://wa.me/916371205518?text=%E0%A4%A8%E0%A4%AE%E0%A4%B8%E0%A5%8D%E0%A4%A4%E0%A5%87%20Kaarigar%20AI%20%E0%A4%AE%E0%A5%88%E0%A4%82%20%E0%A4%85%E0%A4%AA%E0%A4%A8%E0%A4%BE%20%E0%A4%B8%E0%A4%BE%E0%A4%AE%E0%A4%BE%E0%A4%A8%20%E0%A4%AC%E0%A5%87%E0%A4%9A%E0%A4%A8%E0%A4%BE%20%E0%A4%9A%E0%A4%BE%E0%A4%B9%E0%A4%A4%E0%A4%BE%20%E0%A4%B9%E0%A5%82%E0%A4%81%E0%A5%A4" target="_blank" class="p-2 rounded-xl bg-emerald-700/60 hover:bg-emerald-600 text-white text-xs font-semibold flex items-center gap-1 transition" title="Open in Real WhatsApp">
+            <i class="fa-brands fa-whatsapp"></i>
+            <span class="text-[10px] hidden xs:inline">WhatsApp App ↗</span>
+          </a>
+          <button onclick="closeWhatsAppModal()" class="w-8 h-8 rounded-full bg-[#111B21] hover:bg-black text-slate-300 flex items-center justify-center">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Quick Action Prompt Chips -->
+      <div class="bg-[#182229] px-3 py-2 flex items-center gap-1.5 overflow-x-auto text-[10px] border-b border-white/5 scrollbar-none">
+        <button onclick="sendQuickPrompt('नया मिट्टी का सामान बेचना है, सही भाव बताएं')" class="px-2.5 py-1 rounded-full bg-[#202C33] hover:bg-[#2A3942] text-slate-200 whitespace-nowrap border border-white/5">
+          🏺 नया सामान लिस्ट करें
+        </button>
+        <button onclick="sendQuickPrompt('मेरे ऑर्डर और बैंक में पैसे की स्थिति बताओ')" class="px-2.5 py-1 rounded-full bg-[#202C33] hover:bg-[#2A3942] text-slate-200 whitespace-nowrap border border-white/5">
+          📦 मेरे ऑर्डर व कमाई
+        </button>
+        <button onclick="sendQuickPrompt('दीवाली के लिए किस सामान की सबसे ज्यादा मांग है?')" class="px-2.5 py-1 rounded-full bg-[#202C33] hover:bg-[#2A3942] text-slate-200 whitespace-nowrap border border-white/5">
+          🪔 दीवाली मांग अलर्ट
+        </button>
+        <button onclick="sendQuickPrompt('डिलीवरी पार्टनर और कंपनी नंबर')" class="px-2.5 py-1 rounded-full bg-[#202C33] hover:bg-[#2A3942] text-slate-200 whitespace-nowrap border border-white/5">
+          🚚 डिलीवरी संपर्क
+        </button>
+      </div>
+
+      <!-- Chat Messages Container -->
+      <div id="wa-chat-container" class="p-3.5 space-y-3 text-xs flex-1 overflow-y-auto max-h-[50vh] bg-[#0B141A]">
+        
+        <!-- Welcome Bot Message -->
+        <div class="wa-bubble-incoming p-3 space-y-1.5 max-w-[90%] rounded-2xl bg-[#202C33] text-slate-200">
+          <div class="flex items-center gap-1.5 text-emerald-400 font-bold text-[11px]">
+            <i class="fa-solid fa-robot"></i>
+            <span>कारीगर AI वर्चुअल बिजनेस मैनेजर</span>
+          </div>
+          <p class="text-[11px] leading-relaxed">
+            नमस्ते कारीगर साथी! 🙏<br>
+            मैं आपकी जेब का वर्चुअल बिजनेस मैनेजर हूँ। मुझे अपने सामान की फोटो भेजें या बोलकर बताएं। मैं तुरंत उसका सही दाम तय करके Kaarigar Store पर 24/7 लाइव प्रकाशित कर दूँगा।
+          </p>
+          <div class="text-[9px] text-slate-400 font-mono text-right pt-0.5">
+            UPI: 6371205518@upi • कूरियर: +91 9668317798
+          </div>
+        </div>
+
+      </div>
+
+      <!-- WhatsApp Input Bar -->
+      <form id="wa-chat-form" onsubmit="handleSendWhatsAppBot(event)" class="bg-[#202C33] p-2.5 border-t border-white/5 flex items-center gap-2">
+        <button type="button" onclick="recordWhatsAppVoice()" id="wa-mic-btn" class="w-9 h-9 rounded-full bg-[#111B21] hover:bg-[#2A3942] text-emerald-400 flex items-center justify-center flex-shrink-0 transition" title="बोलकर बताएं">
+          <i class="fa-solid fa-microphone"></i>
+        </button>
+        <input type="text" id="wa-input-text" placeholder="यहाँ बोलें या लिखें (e.g. मिट्टी का दीया, 2 दिन लगे)..." class="flex-1 bg-[#2A3942] rounded-xl px-3 py-2 text-xs text-white placeholder:text-slate-400 outline-none focus:ring-1 focus:ring-emerald-500">
+        <button type="submit" class="w-9 h-9 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white flex items-center justify-center flex-shrink-0 transition shadow">
+          <i class="fa-solid fa-paper-plane text-xs"></i>
+        </button>
+      </form>
+
+    </div>
+  </div>
+
+  <div id="toast-box" class="fixed bottom-16 right-4 z-50 space-y-2 pointer-events-none"></div>
+
+  <script src="/js/artisan.js"></script>
+</body>
+</html>

@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login & Delivery Address | Kaarigar Store</title>
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            gold: {
+              300: '#F5E1A4',
+              400: '#E5C158',
+              500: '#D4AF37',
+              600: '#B89420',
+              700: '#8C6F12'
+            },
+            meesho: {
+              pink: '#F43397',
+              dark: '#9F2060',
+              bg: '#FDF7F9',
+              green: '#038D63'
+            },
+            obsidian: '#0B0D11',
+            surface: '#14171F',
+            card: '#1B202C',
+            borderDark: '#283042'
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body class="bg-obsidian text-slate-100 min-h-screen flex flex-col selection:bg-gold-500 selection:text-black">
+
+  <!-- Simple Header -->
+  <header class="bg-surface/95 border-b border-borderDark px-4 lg:px-8 py-3.5 sticky top-0 z-40">
+    <div class="max-w-4xl mx-auto flex items-center justify-between">
+      <a href="/store" class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-amber-600 via-gold-500 to-amber-200 flex items-center justify-center text-obsidian shadow-lg shadow-gold-500/20">
+          <i class="fa-solid fa-hands-holding-circle text-xl"></i>
+        </div>
+        <div>
+          <span class="text-lg font-bold font-luxury tracking-wider text-white">KAARIGAR <span class="text-gold-500">STORE</span></span>
+          <p class="text-[10px] text-slate-400">Authentic Handcraft Marketplace</p>
+        </div>
+      </a>
+
+      <a href="/store" class="text-xs text-gold-400 hover:text-gold-300 flex items-center gap-1.5 transition">
+        <i class="fa-solid fa-arrow-left"></i>
+        <span>Back to Store</span>
+      </a>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="flex-1 max-w-xl mx-auto w-full px-4 py-8 flex flex-col justify-center">
+
+    <!-- LOGIN SECTION (Visible when not logged in) -->
+    <div id="login-section" class="bg-surface border border-borderDark rounded-3xl p-6 sm:p-8 shadow-2xl space-y-6">
+      <div class="text-center space-y-1.5">
+        <div class="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-gold-500/15 border border-gold-500/30 text-gold-400 text-2xl mb-2">
+          <i class="fa-solid fa-user-lock"></i>
+        </div>
+        <h2 class="text-xl font-bold text-white">Login or Sign Up</h2>
+        <p class="text-xs text-slate-400">Enter your phone number to manage delivery address and track orders</p>
+      </div>
+
+      <!-- Phone Login Form -->
+      <form id="form-login" onsubmit="handlePhoneLogin(event)" class="space-y-4">
+        <div>
+          <label class="block text-xs font-semibold text-slate-300 mb-1.5">Full Name</label>
+          <input type="text" id="login-name" required placeholder="e.g. Rahul Sharma" class="w-full bg-card border border-borderDark rounded-xl px-3.5 py-2.5 text-xs text-white focus:border-gold-500 focus:outline-none">
+        </div>
+
+        <div>
+          <label class="block text-xs font-semibold text-slate-300 mb-1.5">Mobile Number</label>
+          <div class="flex items-center gap-2">
+            <span class="px-3 py-2.5 bg-card border border-borderDark rounded-xl text-xs text-slate-400 font-mono">+91</span>
+            <input type="tel" id="login-phone" required pattern="[0-9]{10}" maxlength="10" placeholder="10-digit mobile number" class="flex-1 bg-card border border-borderDark rounded-xl px-3.5 py-2.5 text-xs text-white font-mono focus:border-gold-500 focus:outline-none">
+          </div>
+        </div>
+
+        <!-- OTP Simulation Container -->
+        <div id="otp-container" class="hidden space-y-2 pt-2 border-t border-borderDark">
+          <label class="block text-xs font-semibold text-emerald-400">Enter 4-Digit OTP (Simulated: 1234)</label>
+          <input type="text" id="login-otp" maxlength="4" placeholder="1234" value="1234" class="w-full bg-card border border-emerald-500/50 rounded-xl px-3.5 py-2.5 text-center text-lg font-mono tracking-widest text-emerald-300 focus:outline-none">
+        </div>
+
+        <button type="submit" id="btn-login-submit" class="w-full py-3 rounded-xl bg-gold-500 hover:bg-gold-600 text-obsidian font-bold text-xs tracking-wide transition shadow-lg shadow-gold-500/20 active:scale-98">
+          Continue with OTP
+        </button>
+
+        <p class="text-[10px] text-center text-slate-500 leading-relaxed">
+          By continuing, you agree to Kaarigar's Terms of Use & Privacy Policy. 100% Secure & Verified.
+        </p>
+      </form>
+    </div>
+
+    <!-- ADDRESS SECTION (Visible after login or when address is saved) -->
+    <div id="address-section" class="hidden bg-surface border border-borderDark rounded-3xl p-6 sm:p-8 shadow-2xl space-y-6">
+      
+      <!-- User profile header -->
+      <div class="flex items-center justify-between border-b border-borderDark pb-4">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-full bg-gold-500/20 border border-gold-500/40 text-gold-400 flex items-center justify-center font-bold text-sm">
+            <span id="profile-avatar">U</span>
+          </div>
+          <div>
+            <h3 id="profile-name" class="text-sm font-bold text-white">Customer Name</h3>
+            <p id="profile-phone" class="text-xs text-slate-400 font-mono">+91 9XXXXXXXXX</p>
+          </div>
+        </div>
+        <button onclick="handleLogout()" class="px-3 py-1.5 rounded-lg bg-card hover:bg-surface border border-borderDark text-slate-400 hover:text-red-400 text-xs transition">
+          <i class="fa-solid fa-arrow-right-from-bracket mr-1"></i> Logout
+        </button>
+      </div>
+
+      <!-- Saved Address Display Card -->
+      <div id="saved-address-card" class="hidden p-4 rounded-2xl bg-card border border-emerald-500/40 space-y-3">
+        <div class="flex items-center justify-between">
+          <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-500/15 text-emerald-300 text-[11px] font-bold">
+            <i class="fa-solid fa-circle-check text-xs"></i> Default Delivery Address
+          </span>
+          <button onclick="editAddress()" class="text-xs text-gold-400 hover:underline">
+            <i class="fa-solid fa-pen-to-square mr-1"></i> Edit
+          </button>
+        </div>
+        <div class="text-xs text-slate-200 leading-relaxed">
+          <p class="font-bold text-white text-sm" id="card-name">Customer Name</p>
+          <p id="card-address" class="text-slate-300 mt-1">House/Flat No, Area, City, State - Pincode</p>
+          <p id="card-phone" class="text-slate-400 font-mono mt-1">Phone: +91 9XXXXXXXXX</p>
+        </div>
+        <div class="pt-2 flex items-center gap-2">
+          <a href="/store" class="flex-1 py-2.5 rounded-xl bg-gold-500 hover:bg-gold-600 text-obsidian font-bold text-xs text-center transition shadow">
+            Continue to Shop 🛍️
+          </a>
+        </div>
+      </div>
+
+      <!-- Address Input Form -->
+      <div id="address-form-wrapper" class="space-y-4">
+        <div class="flex items-center justify-between">
+          <h4 class="text-sm font-bold text-white flex items-center gap-2">
+            <i class="fa-solid fa-location-dot text-gold-400"></i>
+            <span>Add / Update Delivery Address</span>
+          </h4>
+        </div>
+
+        <form id="form-address" onsubmit="handleSaveAddress(event)" class="space-y-3.5">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <div>
+              <label class="block text-[11px] text-slate-300 mb-1 font-semibold">Contact Name</label>
+              <input type="text" id="addr-name" required placeholder="Receiver's name" class="w-full bg-card border border-borderDark rounded-xl px-3 py-2 text-xs text-white focus:border-gold-500 focus:outline-none">
+            </div>
+            <div>
+              <label class="block text-[11px] text-slate-300 mb-1 font-semibold">Contact Phone</label>
+              <input type="tel" id="addr-phone" required pattern="[0-9]{10}" maxlength="10" placeholder="10-digit mobile" class="w-full bg-card border border-borderDark rounded-xl px-3 py-2 text-xs text-white font-mono focus:border-gold-500 focus:outline-none">
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-[11px] text-slate-300 mb-1 font-semibold">House No. / Building Name / Flat</label>
+            <input type="text" id="addr-house" required placeholder="e.g. Flat 402, Sai Residency" class="w-full bg-card border border-borderDark rounded-xl px-3 py-2 text-xs text-white focus:border-gold-500 focus:outline-none">
+          </div>
+
+          <div>
+            <label class="block text-[11px] text-slate-300 mb-1 font-semibold">Road Name / Area / Colony</label>
+            <input type="text" id="addr-street" required placeholder="e.g. 5th Cross, Indiranagar" class="w-full bg-card border border-borderDark rounded-xl px-3 py-2 text-xs text-white focus:border-gold-500 focus:outline-none">
+          </div>
+
+          <div class="grid grid-cols-3 gap-2.5">
+            <div>
+              <label class="block text-[11px] text-slate-300 mb-1 font-semibold">City</label>
+              <input type="text" id="addr-city" required placeholder="Bengaluru" class="w-full bg-card border border-borderDark rounded-xl px-3 py-2 text-xs text-white focus:border-gold-500 focus:outline-none">
+            </div>
+            <div>
+              <label class="block text-[11px] text-slate-300 mb-1 font-semibold">State</label>
+              <input type="text" id="addr-state" required placeholder="Karnataka" class="w-full bg-card border border-borderDark rounded-xl px-3 py-2 text-xs text-white focus:border-gold-500 focus:outline-none">
+            </div>
+            <div>
+              <label class="block text-[11px] text-slate-300 mb-1 font-semibold">Pincode</label>
+              <input type="text" id="addr-pincode" required pattern="[0-9]{6}" maxlength="6" placeholder="560038" class="w-full bg-card border border-borderDark rounded-xl px-3 py-2 text-xs text-white font-mono focus:border-gold-500 focus:outline-none">
+            </div>
+          </div>
+
+          <button type="submit" class="w-full py-3 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs tracking-wide transition shadow-lg shadow-emerald-600/20 active:scale-98 mt-2">
+            Save Address & Continue to Shop 🛍️
+          </button>
+        </form>
+      </div>
+
+    </div>
+
+  </main>
+
+  <div id="toast-box" class="fixed bottom-5 right-5 z-50 space-y-2 pointer-events-none"></div>
+
+  <script>
+    let otpStep = false;
+
+    document.addEventListener('DOMContentLoaded', () => {
+      checkLoginState();
+    });
+
+    function checkLoginState() {
+      const user = JSON.parse(localStorage.getItem('kaarigar_user') || 'null');
+      const address = JSON.parse(localStorage.getItem('kaarigar_address') || 'null');
+
+      const loginSection = document.getElementById('login-section');
+      const addressSection = document.getElementById('address-section');
+      const savedCard = document.getElementById('saved-address-card');
+      const formWrapper = document.getElementById('address-form-wrapper');
+
+      if (user && user.loggedIn) {
+        loginSection.classList.add('hidden');
+        addressSection.classList.remove('hidden');
+
+        document.getElementById('profile-name').textContent = user.name || 'Valued Patron';
+        document.getElementById('profile-phone').textContent = `+91 ${user.phone}`;
+        document.getElementById('profile-avatar').textContent = (user.name || 'U').charAt(0).toUpperCase();
+
+        if (address && address.house) {
+          savedCard.classList.remove('hidden');
+          formWrapper.classList.add('hidden');
+
+          document.getElementById('card-name').textContent = address.name || user.name;
+          document.getElementById('card-address').textContent = `${address.house}, ${address.street}, ${address.city}, ${address.state} - ${address.pincode}`;
+          document.getElementById('card-phone').textContent = `Phone: +91 ${address.phone || user.phone}`;
+        } else {
+          savedCard.classList.add('hidden');
+          formWrapper.classList.remove('hidden');
+          // Pre-fill name and phone
+          document.getElementById('addr-name').value = user.name || '';
+          document.getElementById('addr-phone').value = user.phone || '';
+        }
+      } else {
+        loginSection.classList.remove('hidden');
+        addressSection.classList.add('hidden');
+      }
+    }
+
+    function handlePhoneLogin(e) {
+      e.preventDefault();
+      const name = document.getElementById('login-name').value.trim();
+      const phone = document.getElementById('login-phone').value.trim();
+
+      if (!otpStep) {
+        // Show OTP step
+        otpStep = true;
+        document.getElementById('otp-container').classList.remove('hidden');
+        document.getElementById('btn-login-submit').textContent = 'Verify OTP & Login';
+        showToast('OTP sent to +91 ' + phone + ' (Code: 1234)', 'info');
+      } else {
+        // Verify OTP
+        const otp = document.getElementById('login-otp').value.trim();
+        if (otp === '1234' || otp.length === 4) {
+          const user = { name, phone, loggedIn: true };
+          localStorage.setItem('kaarigar_user', JSON.stringify(user));
+          showToast('Login successful! Please add delivery address.', 'success');
+          otpStep = false;
+          checkLoginState();
+        } else {
+          showToast('Invalid OTP. Please enter 1234.', 'error');
+        }
+      }
+    }
+
+    function handleSaveAddress(e) {
+      e.preventDefault();
+      const user = JSON.parse(localStorage.getItem('kaarigar_user') || '{}');
+      const name = document.getElementById('addr-name').value.trim();
+      const phone = document.getElementById('addr-phone').value.trim();
+      const house = document.getElementById('addr-house').value.trim();
+      const street = document.getElementById('addr-street').value.trim();
+      const city = document.getElementById('addr-city').value.trim();
+      const state = document.getElementById('addr-state').value.trim();
+      const pincode = document.getElementById('addr-pincode').value.trim();
+
+      const fullAddress = `${house}, ${street}, ${city}, ${state} - ${pincode}`;
+      const addressData = {
+        name,
+        phone,
+        house,
+        street,
+        city,
+        state,
+        pincode,
+        fullAddress
+      };
+
+      localStorage.setItem('kaarigar_address', JSON.stringify(addressData));
+      showToast('Delivery address saved successfully!', 'success');
+
+      setTimeout(() => {
+        window.location.href = '/store';
+      }, 1000);
+    }
+
+    function editAddress() {
+      const address = JSON.parse(localStorage.getItem('kaarigar_address') || '{}');
+      document.getElementById('addr-name').value = address.name || '';
+      document.getElementById('addr-phone').value = address.phone || '';
+      document.getElementById('addr-house').value = address.house || '';
+      document.getElementById('addr-street').value = address.street || '';
+      document.getElementById('addr-city').value = address.city || '';
+      document.getElementById('addr-state').value = address.state || '';
+      document.getElementById('addr-pincode').value = address.pincode || '';
+
+      document.getElementById('saved-address-card').classList.add('hidden');
+      document.getElementById('address-form-wrapper').classList.remove('hidden');
+    }
+
+    function handleLogout() {
+      localStorage.removeItem('kaarigar_user');
+      localStorage.removeItem('kaarigar_address');
+      showToast('Logged out successfully', 'info');
+      checkLoginState();
+    }
+
+    function showToast(message, type = 'info') {
+      const container = document.getElementById('toast-box');
+      if (!container) return;
+      const toast = document.createElement('div');
+      const colors = {
+        success: 'bg-emerald-900/90 border-emerald-500/50 text-emerald-200',
+        error: 'bg-red-900/90 border-red-500/50 text-red-200',
+        info: 'bg-card border-gold-500/50 text-gold-300'
+      };
+      toast.className = `p-3 rounded-xl border text-xs font-semibold shadow-2xl backdrop-blur-md flex items-center gap-2.5 transition-all duration-300 ${colors[type] || colors.info}`;
+      toast.innerHTML = `
+        <i class="fa-solid ${type === 'success' ? 'fa-circle-check text-emerald-400' : type === 'error' ? 'fa-circle-exclamation text-red-400' : 'fa-circle-info text-gold-400'}"></i>
+        <span>${message}</span>
+      `;
+      container.appendChild(toast);
+      setTimeout(() => {
+        toast.style.opacity = '0';
+        setTimeout(() => toast.remove(), 400);
+      }, 3500);
+    }
+  </script>
+</body>
+</html>

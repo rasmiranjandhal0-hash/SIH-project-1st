@@ -1,0 +1,302 @@
+[
+  {
+    "id": "art-001",
+    "title": "Gorakhpur Sacred Terracotta Kalash",
+    "titleHi": "गोरखपुर पवित्र टेराकोटा कलश",
+    "subtitle": "Raw Terracotta • Hand-Etched Vedic Floral Geometry",
+    "subtitleHi": "प्राकृतिक टेराकोटा • हस्तनिर्मित वैदिक पुष्प नक्काशी",
+    "category": "Pottery & Terracotta",
+    "categoryHi": "मिट्टी व टेराकोटा शिल्प",
+    "giTag": "GI-Tag Certified #UP-2015-08",
+    "price": 280,
+    "priceRange": {
+      "min": 240,
+      "max": 340,
+      "recommended": 280,
+      "confidence": "94%",
+      "justification": "Based on 2 days wheel labor, Rapti riverbed clay cost (₹45), and comparable festive home decor trends."
+    },
+    "marketPrice": 550,
+    "artisanPayout": 245,
+    "stockRemaining": 0,
+    "totalBatchSize": 25,
+    "dropEndsIn": "08h 42m",
+    "isFeaturedDrop": true,
+    "artisan": {
+      "name": "Rameshwar Prajapati",
+      "nameHi": "रामेश्वर प्रजापति",
+      "generation": "4th Generation Master Potter",
+      "generationHi": "चौथी पीढ़ी के सिद्ध कुम्हार",
+      "experienceYears": 34,
+      "village": "Aurangabad Village, Gorakhpur",
+      "villageHi": "औरंगाबाद गांव, गोरखपुर",
+      "state": "Uttar Pradesh",
+      "avatar": "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=300&q=80",
+      "audioBlessing": "राम राम भैया। यह घड़ा हमारी मिट्टी की शुद्धि से बना है। इसमें पानी 24 घंटे ठंडा और अमृत जैसा रहता है।",
+      "coordinates": "26.7606° N, 83.3732° E",
+      "clusterGroup": "Gorakhpur Earthen Artisans SHG"
+    },
+    "images": {
+      "raw": "https://images.unsplash.com/photo-1578749556568-bc2c40e68b61?auto=format&fit=crop&w=800&q=80",
+      "studio": "https://images.unsplash.com/photo-1615529182904-14819c35db37?auto=format&fit=crop&w=800&q=80"
+    },
+    "provenance": {
+      "certificateId": "KG-IND-2026-0941",
+      "blockchainSeal": "0x7F2a9...d4B1e9",
+      "material": "Silt Clay from the banks of Rapti River",
+      "materialHi": "राप्ती नदी के तट की शुद्ध गाद मिट्टी",
+      "firingMethod": "Wood-fired Traditional Husk Kiln (780°C)",
+      "firingMethodHi": "सरसों भूसी की धीमी पारंपरिक भट्टी",
+      "daysToCraft": 2
+    },
+    "story": "Hand-shaped on a manual wooden wheel without electricity. Fired with slow mustard-husk embers to create micro-porosity that cools drinking water naturally without electricity.",
+    "storyHi": "बिना बिजली के लकड़ी के चाक पर गढ़ा गया। सरसों की भूसी की धीमी आंच में पकाया गया, जिससे पानी प्राकृतिक रूप से ठंडा रहता है।",
+    "tags": [
+      "Terracotta",
+      "Gorakhpur",
+      "NaturalCooler",
+      "Handmade",
+      "VedicPottery"
+    ]
+  },
+  {
+    "id": "art-002",
+    "title": "Mithila Hand-Painted Madhubani Art",
+    "titleHi": "मिथिला हस्तनिर्मित मधुबनी चित्रकला",
+    "subtitle": "Handmade Paper • Natural Twig & Bamboo Nib Stroke",
+    "subtitleHi": "हाथ से बना कागज • नीम की डंडी व प्राकृतिक रंगों से चित्रांकन",
+    "category": "Paintings & Folk Art",
+    "categoryHi": "पारंपरिक लोक चित्रकला",
+    "giTag": "GI-Tag Certified #BR-2007-02",
+    "price": 420,
+    "priceRange": {
+      "min": 380,
+      "max": 520,
+      "recommended": 420,
+      "confidence": "91%",
+      "justification": "Reflects 3 days of fine bamboo-nib detailing, natural organic plant dye extraction, and high wall art demand."
+    },
+    "marketPrice": 890,
+    "artisanPayout": 370,
+    "stockRemaining": 0,
+    "totalBatchSize": 15,
+    "dropEndsIn": "05h 30m",
+    "isFeaturedDrop": true,
+    "artisan": {
+      "name": "Sita Devi",
+      "nameHi": "सीता देवी",
+      "generation": "Traditional Mithila Artist",
+      "generationHi": "पारंपरिक मिथिला कलाकार",
+      "experienceYears": 26,
+      "village": "Ranti Village, Madhubani",
+      "villageHi": "रांटी गांव, मधुबनी",
+      "state": "Bihar",
+      "avatar": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=300&q=80",
+      "audioBlessing": "प्रणाम। यह पेंटिंग हमने नीम की डंडी और फूलों के रंग से बनाई है। यह घर में शांति और समृद्धि लाती है।",
+      "coordinates": "26.3541° N, 86.0715° E",
+      "clusterGroup": "Maa Durga Mahila Hastshilp SHG"
+    },
+    "images": {
+      "raw": "https://images.unsplash.com/photo-1579783902614-a3fb3927b675?auto=format&fit=crop&w=800&q=80",
+      "studio": "https://images.unsplash.com/photo-1582561424760-0321d75e81fa?auto=format&fit=crop&w=800&q=80"
+    },
+    "provenance": {
+      "certificateId": "KG-IND-2026-3312",
+      "blockchainSeal": "0x4B9e2...e7C104",
+      "material": "Handmade Rice Straw Paper & Plant Pigments (Turmeric, Indigo)",
+      "materialHi": "हाथ से बना पुआल कागज व वानस्पतिक रंग (हल्दी, नील)",
+      "firingMethod": "Freehand Bamboo Nib Illustration",
+      "firingMethodHi": "बांस की कलम से मुक्तहस्त रेखांकन",
+      "daysToCraft": 3
+    },
+    "story": "Hand-drawn line by line using bamboo nibs with organic colors extracted from turmeric root, soot, and wild berries. Represents the traditional Kohbar blessing for harmony.",
+    "storyHi": "बांस की डंडी से हल्दी, काजल और जंगली फूलों के रंगों द्वारा रेखांकित। घर में सुख, शांति और समृद्धि का प्रतीक।",
+    "tags": [
+      "Madhubani",
+      "FolkArt",
+      "WallDecor",
+      "OrganicPigments",
+      "Mithila"
+    ]
+  },
+  {
+    "id": "art-003",
+    "title": "Kutch Hand-Block Ajrakh Cotton Stole",
+    "titleHi": "कच्छ हस्त-ब्लॉक अजरख सूती दुपट्टा",
+    "subtitle": "100% Breathable Desert Cotton • Natural Indigo & Madder Dye",
+    "subtitleHi": "100% शुद्ध सूती • प्राकृतिक नील व मजीठ की 16-चरणीय छपाई",
+    "category": "Textiles & Handloom",
+    "categoryHi": "वस्त्र व हथकरघा",
+    "giTag": "GI-Tag Certified #GJ-2011-04",
+    "price": 650,
+    "priceRange": {
+      "min": 580,
+      "max": 750,
+      "recommended": 650,
+      "confidence": "96%",
+      "justification": "Based on 16-stage hand block imprinting, pure natural indigo bath, and high seasonal textile demand."
+    },
+    "marketPrice": 1250,
+    "artisanPayout": 570,
+    "stockRemaining": 0,
+    "totalBatchSize": 12,
+    "dropEndsIn": "03h 15m",
+    "isFeaturedDrop": true,
+    "artisan": {
+      "name": "Ismail Khatri",
+      "nameHi": "इस्माइल खत्री",
+      "generation": "6th Generation Ajrakh Master",
+      "generationHi": "छठी पीढ़ी के अजरख उस्ताद",
+      "experienceYears": 42,
+      "village": "Ajrakhpur, Kutch",
+      "villageHi": "अजरखपुर, कच्छ",
+      "state": "Gujarat",
+      "avatar": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=300&q=80",
+      "audioBlessing": "सलाम दोस्तों। अजरख का मतलब है 'आज के दिन रख'। यह प्राकृतिक रंग वर्षों तक धूप में भी नहीं उतरता।",
+      "coordinates": "23.2384° N, 69.8037° E",
+      "clusterGroup": "Kutch Desert Weavers Guild"
+    },
+    "images": {
+      "raw": "https://images.unsplash.com/photo-1606760227091-3dd870d97f1d?auto=format&fit=crop&w=800&q=80",
+      "studio": "https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=800&q=80"
+    },
+    "provenance": {
+      "certificateId": "KG-IND-2026-1108",
+      "blockchainSeal": "0x3D1c8...a8F472",
+      "material": "Pure Desert Cotton, Natural Pomegranate & Ferrous Indigo",
+      "materialHi": "शुद्ध कच्छी कपास, अनार का छिलका व प्राकृतिक नील",
+      "firingMethod": "River-washed 16-cycle teakwood block imprint",
+      "firingMethodHi": "सागवान की लकड़ी के ठप्पों से 16-चरणीय छपाई",
+      "daysToCraft": 4
+    },
+    "story": "Ajrakh printing is mathematical sacred geometry hand-stamped onto breathable cotton. Breathes effortlessly in summer, softens with every wash.",
+    "storyHi": "सागवान की लकड़ी के ठप्पों से प्राकृतिक रंगों में रंगा हुआ। गर्मियों में ठंडा और त्वचा के लिए अत्यंत कोमल।",
+    "tags": [
+      "Ajrakh",
+      "Kutch",
+      "BlockPrint",
+      "OrganicCotton",
+      "Handloom"
+    ]
+  },
+  {
+    "id": "art-004",
+    "title": "Channapatna Organic Sovereign Toy",
+    "titleHi": "चन्नापट्टना प्राकृतिक लाख का खिलौना",
+    "subtitle": "Ivory Wood • Naturally Colored with Turmeric & Plant Lacquer",
+    "subtitleHi": "आले मारा लकड़ी • हल्दी व वनस्पति लाख से पॉलिश किया हुआ",
+    "category": "Woodcraft & Toys",
+    "categoryHi": "काष्ठ व खिलौना शिल्प",
+    "giTag": "GI-Tag Certified #KA-2006-03",
+    "price": 320,
+    "priceRange": {
+      "min": 280,
+      "max": 380,
+      "recommended": 320,
+      "confidence": "93%",
+      "justification": "Hand-lathe burnished seasoned softwood, 100% lead-free non-toxic organic colors, high parent gifting demand."
+    },
+    "marketPrice": 650,
+    "artisanPayout": 280,
+    "stockRemaining": 8,
+    "totalBatchSize": 20,
+    "dropEndsIn": "22h 05m",
+    "isFeaturedDrop": false,
+    "artisan": {
+      "name": "Muniyappa Gowda",
+      "nameHi": "मुनियप्पा गौड़ा",
+      "generation": "3rd Generation Toymaker",
+      "generationHi": "तीसरी पीढ़ी के काष्ठ शिल्पी",
+      "experienceYears": 25,
+      "village": "Channapatna Gombe Galli",
+      "villageHi": "गोम्बे गल्ली, चन्नापट्टना",
+      "state": "Karnataka",
+      "avatar": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=300&q=80",
+      "audioBlessing": "नमस्कार। यह लकड़ी बच्चों के लिए 100% सुरक्षित है, इसमें हल्दी और प्राकृतिक वनस्पति का रंग चढ़ाया गया है।",
+      "coordinates": "12.6518° N, 77.2089° E",
+      "clusterGroup": "Karnataka Toy Artisans Cooperative"
+    },
+    "images": {
+      "raw": "https://images.unsplash.com/photo-1529699211952-734e80c4d42b?auto=format&fit=crop&w=800&q=80",
+      "studio": "https://images.unsplash.com/photo-1586165368502-1bad197a6461?auto=format&fit=crop&w=800&q=80"
+    },
+    "provenance": {
+      "certificateId": "KG-IND-2026-8819",
+      "blockchainSeal": "0x1A8b3...c79011",
+      "material": "Sustainably Harvested Wrightia Tinctoria (Aale Mara)",
+      "materialHi": "सतत रूप से प्राप्त आले मारा (हाथीदांत) लकड़ी",
+      "firingMethod": "High-Speed Lathe Burnishing with Palm Leaves",
+      "firingMethodHi": "ताड़ के पत्तों से घिसाई कर प्राकृतिक चमक",
+      "daysToCraft": 2
+    },
+    "story": "Turned on traditional hand lathes and burnished with natural euphorbia leaves to a jewel-like gloss. Completely chemical-free and safe for children.",
+    "storyHi": "हाथ के खराद पर गढ़ा गया और वनस्पति लाख से रंगा गया। पूरी तरह रासायनिक रंगों से मुक्त व बच्चों के लिए सुरक्षित।",
+    "tags": [
+      "Channapatna",
+      "WoodenToy",
+      "OrganicLacquer",
+      "NonToxic",
+      "FolkCraft"
+    ]
+  },
+  {
+    "id": "art-005",
+    "title": "Bastar Dokra Lost-Wax Tribal Deer",
+    "titleHi": "बस्तर ढोकरा कांस्य हिरण शिल्प",
+    "subtitle": "Solid Bell Metal (Brass & Bronze) • Ancient Indus Lost-Wax Casting",
+    "subtitleHi": "घंटिका धातु (पीतल व कांस्य) • 4000 वर्ष प्राचीन लॉस्ट-वैक्स ढलाई",
+    "category": "Metalwork & Sculptures",
+    "categoryHi": "धातु शिल्प व मूर्तियां",
+    "giTag": "GI-Tag Certified #CG-2008-01",
+    "price": 720,
+    "priceRange": {
+      "min": 650,
+      "max": 850,
+      "recommended": 720,
+      "confidence": "95%",
+      "justification": "Single-use beeswax mold destroyed in casting, authentic tribal bronze alloy, strong collector demand."
+    },
+    "marketPrice": 1450,
+    "artisanPayout": 630,
+    "stockRemaining": 0,
+    "totalBatchSize": 10,
+    "dropEndsIn": "14h 50m",
+    "isFeaturedDrop": true,
+    "artisan": {
+      "name": "Budhram Baghel",
+      "nameHi": "बुधराम बघेल",
+      "generation": "Tribal Ghadwa Lineage",
+      "generationHi": "पारंपरिक घड़वा आदिवासी वंश",
+      "experienceYears": 28,
+      "village": "Kondagaon, Bastar",
+      "villageHi": "कोंडागांव, बस्तर",
+      "state": "Chhattisgarh",
+      "avatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=300&q=80",
+      "audioBlessing": "जोहार। हम बस्तर के जंगल के देवी-देवताओं और जीवों को पीतल में ढालकर अमर बनाते हैं।",
+      "coordinates": "19.5937° N, 81.6669° E",
+      "clusterGroup": "Bastar Tribal Craft Guild"
+    },
+    "images": {
+      "raw": "https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=800&q=80",
+      "studio": "https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&w=800&q=80"
+    },
+    "provenance": {
+      "certificateId": "KG-IND-2026-4472",
+      "blockchainSeal": "0x9E4f1...b6E209",
+      "material": "Recycled Bell Metal & Forest Beeswax",
+      "materialHi": "पुनर्चक्रित घंटिका धातु व जंगली मधुमक्खी का मोम",
+      "firingMethod": "Lost-Wax (Cire Perdue) Single-Use Clay Core",
+      "firingMethodHi": "मिट्टी और मोम की एकल-प्रयोग सांचा ढलाई",
+      "daysToCraft": 4
+    },
+    "story": "Because the clay mould is shattered to retrieve the cooled bronze, no two Dokra artifacts in the world are identical. Uses the same 4,000-year-old Mohenjo-daro technique.",
+    "storyHi": "मोम और मिट्टी के सांचे को तोड़कर बनाई गई धातु कला। संसार में कोई भी दो ढोकरा मूर्तियां कभी एक जैसी नहीं होतीं।",
+    "tags": [
+      "Dokra",
+      "Bastar",
+      "LostWax",
+      "BellMetal",
+      "TribalHeritage"
+    ]
+  }
+]

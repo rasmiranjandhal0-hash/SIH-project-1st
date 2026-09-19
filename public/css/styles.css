@@ -1,0 +1,175 @@
+/* ==============================================================================
+   KAARIGAR AI — VIRTUAL BUSINESS MANAGER STYLING
+   Blend of Traditional Indian Craftsmanship + Cutting-Edge Modern AI
+   ============================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Cinzel:wght@600;700;900&family=Rozha+One&family=Tiro+Devanagari+Hindi:ital@0;1&display=swap');
+
+:root {
+  --primary-gold: #D4AF37;
+  --primary-ochre: #E07A5F;
+  --terracotta-warm: #C85A32;
+  --dark-bg: #0B0D11;
+  --dark-surface: #14171F;
+  --dark-card: #1B202C;
+  --dark-border: #283042;
+  --emerald-accent: #10B981;
+  --font-serif: 'Cinzel', serif;
+  --font-hindi: 'Tiro Devanagari Hindi', serif;
+  --font-sans: 'Plus Jakarta Sans', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--dark-bg);
+  color: #E2E8F0;
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+/* Luxury & Calligraphic Typography */
+.font-luxury {
+  font-family: var(--font-serif);
+  letter-spacing: 0.04em;
+}
+
+.font-hindi {
+  font-family: var(--font-hindi);
+}
+
+/* Warm Gold Gradient Accents */
+.gold-gradient-text {
+  background: linear-gradient(135deg, #FFF0C2 0%, #D4AF37 50%, #AA7C11 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.ochre-gradient-text {
+  background: linear-gradient(135deg, #FFD1B3 0%, #E07A5F 60%, #C85A32 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Interactive Before / After Split Slider */
+.ba-container {
+  position: relative;
+  overflow: hidden;
+  user-select: none;
+}
+
+.ba-before-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.ba-after-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 50%;
+  object-fit: cover;
+  border-right: 3px solid var(--primary-gold);
+  overflow: hidden;
+  transition: width 0.1s ease-out;
+}
+
+/* Pulsing Mic Effect */
+@keyframes micPulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(224, 122, 95, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 35px rgba(224, 122, 95, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(224, 122, 95, 0);
+  }
+}
+
+.mic-recording {
+  animation: micPulse 1.6s infinite;
+  background-color: #DC2626 !important;
+}
+
+/* Studio Ambient Lighting Filter */
+.studio-lighting-effect {
+  position: relative;
+  overflow: hidden;
+}
+
+.studio-lighting-effect::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 25%, rgba(255, 240, 200, 0.12) 0%, rgba(10, 12, 16, 0.75) 85%);
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+}
+
+/* WhatsApp Simulator Chat Bubbles */
+.wa-bubble-incoming {
+  background-color: #202C33;
+  color: #E9EDEF;
+  border-radius: 12px 12px 12px 0px;
+  align-self: flex-start;
+}
+
+.wa-bubble-outgoing {
+  background-color: #005C4B;
+  color: #E9EDEF;
+  border-radius: 12px 12px 0px 12px;
+  align-self: flex-end;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #0B0D11;
+}
+::-webkit-scrollbar-thumb {
+  background: #252D3D;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #D4AF37;
+}
+
+/* Hide scrollbar for clean horizontal swiping on mobile */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Mobile Slide-Up Animation for Bottom Sheets */
+@keyframes slideUp {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.bottom-sheet-content {
+  animation: slideUp 0.28s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+

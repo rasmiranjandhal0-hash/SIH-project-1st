@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Link WhatsApp (+91 6371205518) | Kaarigar AI</title>
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            gold: {
+              300: '#F5E1A4',
+              400: '#E5C158',
+              500: '#D4AF37',
+              600: '#B89420',
+              700: '#8C6F12'
+            },
+            obsidian: '#0B0D11',
+            surface: '#14171F',
+            card: '#1B202C',
+            borderDark: '#283042'
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body class="bg-obsidian text-slate-100 min-h-screen flex flex-col selection:bg-emerald-500 selection:text-black">
+
+  <!-- Header -->
+  <header class="bg-surface/95 border-b border-borderDark px-4 lg:px-8 py-3.5 sticky top-0 z-40">
+    <div class="max-w-4xl mx-auto flex items-center justify-between">
+      <a href="/store" class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-emerald-600 to-teal-400 flex items-center justify-center text-obsidian shadow-lg shadow-emerald-500/20">
+          <i class="fa-brands fa-whatsapp text-2xl text-white"></i>
+        </div>
+        <div>
+          <span class="text-lg font-bold font-luxury tracking-wider text-white">KAARIGAR <span class="text-emerald-400">WHATSAPP</span></span>
+          <p class="text-[10px] text-slate-400">Automated Order Notification Engine</p>
+        </div>
+      </a>
+
+      <a href="/store" class="text-xs text-gold-400 hover:text-gold-300 flex items-center gap-1.5 transition">
+        <i class="fa-solid fa-arrow-left"></i>
+        <span>Back to Store</span>
+      </a>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="flex-1 max-w-xl mx-auto w-full px-4 py-8 flex flex-col justify-center">
+
+    <!-- QR PAIRING CARD -->
+    <div class="bg-surface border border-emerald-500/40 rounded-3xl p-6 sm:p-8 shadow-2xl space-y-6">
+      
+      <!-- Status Badge Header -->
+      <div class="text-center space-y-2">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/15 border border-emerald-500/30 text-emerald-300 text-xs font-bold uppercase tracking-wider">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+          <span>Sender Number: +91 6371205518</span>
+        </div>
+        <h2 class="text-xl font-bold text-white">Link Your WhatsApp Account</h2>
+        <p class="text-xs text-slate-400 max-w-sm mx-auto">
+          Scan the QR code below using your phone (<strong class="text-emerald-300">6371205518</strong>). All order alerts will be dispatched directly from this number.
+        </p>
+      </div>
+
+      <!-- State 1: QR Code Display -->
+      <div id="box-qr-active" class="space-y-4 text-center">
+        <div class="inline-block p-3 bg-white rounded-3xl shadow-2xl border-4 border-emerald-500/30">
+          <img id="img-qr" src="" alt="WhatsApp QR Code" class="w-64 h-64 object-contain">
+          <div id="qr-loading" class="w-64 h-64 flex flex-col items-center justify-center text-slate-600 gap-2">
+            <i class="fa-solid fa-spinner fa-spin text-3xl text-emerald-500"></i>
+            <span class="text-xs font-semibold text-slate-700">Loading WhatsApp QR...</span>
+          </div>
+        </div>
+
+        <div class="bg-obsidian/80 p-4 rounded-2xl border border-borderDark text-left space-y-2.5 text-xs">
+          <h4 class="font-bold text-white flex items-center gap-2">
+            <i class="fa-solid fa-mobile-screen text-emerald-400"></i>
+            <span>3 Simple Steps on Phone (6371205518):</span>
+          </h4>
+          <ol class="space-y-1.5 text-slate-300 text-[11px] list-decimal list-inside leading-relaxed">
+            <li>Open <strong class="text-white">WhatsApp</strong> on your phone (number: 6371205518).</li>
+            <li>Tap <strong class="text-white">Settings / 3 Dots (⋮)</strong> &rarr; <strong class="text-emerald-400">Linked Devices</strong>.</li>
+            <li>Tap <strong class="text-emerald-400">Link a Device</strong> and point your camera at this QR code.</li>
+          </ol>
+        </div>
+
+        <button onclick="checkStatusManual()" class="text-[11px] text-slate-400 hover:text-emerald-300 underline transition">
+          <i class="fa-solid fa-arrows-rotate mr-1"></i> Refresh QR Code / Connection
+        </button>
+      </div>
+
+      <!-- State 2: Connected Success Card -->
+      <div id="box-connected" class="hidden space-y-4 text-center">
+        <div class="w-16 h-16 rounded-3xl bg-emerald-500/20 border border-emerald-500/40 text-emerald-400 flex items-center justify-center text-3xl mx-auto shadow-lg shadow-emerald-500/20">
+          <i class="fa-solid fa-circle-check"></i>
+        </div>
+        <div class="space-y-1">
+          <h3 class="text-lg font-bold text-white">WhatsApp Connected & Active!</h3>
+          <p class="text-xs text-slate-400">
+            Messages are now configured to be sent from <strong class="text-emerald-400">+91 6371205518</strong>.
+          </p>
+        </div>
+
+        <div class="bg-obsidian p-4 rounded-2xl border border-borderDark text-xs text-left space-y-2">
+          <span class="text-[10px] text-slate-400 uppercase tracking-wider font-semibold block">Active Notification Routes:</span>
+          <div class="space-y-1 text-slate-300 text-[11px]">
+            <p>• <strong>Seller Alerts:</strong> +91 78150 28355</p>
+            <p>• <strong>Delivery Partner:</strong> +91 9668317798</p>
+            <p>• <strong>Company HQ:</strong> +91 6371205518</p>
+            <p>• <strong>Customer:</strong> Dispatched dynamically per order</p>
+          </div>
+        </div>
+
+        <!-- Send Test Message Button -->
+        <div class="pt-2 space-y-2">
+          <button onclick="sendTestWhatsApp()" id="btn-test-send" class="w-full py-3 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs shadow-lg shadow-emerald-600/20 transition active:scale-98 flex items-center justify-center gap-2">
+            <i class="fa-brands fa-whatsapp text-base"></i>
+            <span>Send Test WhatsApp Message to 6371205518</span>
+          </button>
+          <a href="/store" class="block w-full py-2.5 rounded-xl bg-card hover:bg-surface border border-borderDark text-slate-300 text-xs font-semibold text-center transition">
+            Go to Store & Place Test Order
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+  </main>
+
+  <div id="toast-box" class="fixed bottom-5 right-5 z-50 space-y-2 pointer-events-none"></div>
+
+  <script>
+    let pollInterval = null;
+
+    document.addEventListener('DOMContentLoaded', () => {
+      fetchQrCode();
+      pollInterval = setInterval(fetchQrCode, 2500);
+    });
+
+    async function fetchQrCode() {
+      try {
+        const res = await fetch('/api/whatsapp/qr');
+        const data = await res.json();
+
+        const boxQr = document.getElementById('box-qr-active');
+        const boxConnected = document.getElementById('box-connected');
+        const imgQr = document.getElementById('img-qr');
+        const qrLoading = document.getElementById('qr-loading');
+
+        if (data.isReady) {
+          boxQr.classList.add('hidden');
+          boxConnected.classList.remove('hidden');
+          if (pollInterval) {
+            clearInterval(pollInterval);
+            pollInterval = null;
+          }
+        } else if (data.hasQr && data.dataUrl) {
+          boxQr.classList.remove('hidden');
+          boxConnected.classList.add('hidden');
+          imgQr.src = data.dataUrl;
+          imgQr.classList.remove('hidden');
+          qrLoading.classList.add('hidden');
+        } else {
+          // Initialize if needed
+          await fetch('/api/whatsapp/initialize', { method: 'POST' });
+        }
+      } catch (err) {
+        console.warn('QR fetch error:', err);
+      }
+    }
+
+    async function checkStatusManual() {
+      showToast('Refreshing WhatsApp status...', 'info');
+      await fetchQrCode();
+    }
+
+    async function sendTestWhatsApp() {
+      const btn = document.getElementById('btn-test-send');
+      btn.disabled = true;
+      btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Sending test message...';
+
+      try {
+        const res = await fetch('/api/whatsapp/send-test', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ number: '916371205518' })
+        });
+        const data = await res.json();
+        if (data.success) {
+          showToast('✅ Test message successfully sent to +91 6371205518!', 'success');
+        } else {
+          showToast('Test failed: ' + (data.error || 'Client not ready'), 'error');
+        }
+      } catch (err) {
+        showToast('Error: ' + err.message, 'error');
+      } finally {
+        btn.disabled = false;
+        btn.innerHTML = '<i class="fa-brands fa-whatsapp text-base"></i> <span>Send Test WhatsApp Message to 6371205518</span>';
+      }
+    }
+
+    function showToast(message, type = 'info') {
+      const container = document.getElementById('toast-box');
+      if (!container) return;
+      const toast = document.createElement('div');
+      const colors = {
+        success: 'bg-emerald-900/90 border-emerald-500/50 text-emerald-200',
+        error: 'bg-red-900/90 border-red-500/50 text-red-200',
+        info: 'bg-card border-gold-500/50 text-gold-300'
+      };
+      toast.className = `p-3 rounded-xl border text-xs font-semibold shadow-2xl backdrop-blur-md flex items-center gap-2.5 transition-all duration-300 ${colors[type] || colors.info}`;
+      toast.innerHTML = `
+        <i class="fa-solid ${type === 'success' ? 'fa-circle-check text-emerald-400' : type === 'error' ? 'fa-circle-exclamation text-red-400' : 'fa-circle-info text-gold-400'}"></i>
+        <span>${message}</span>
+      `;
+      container.appendChild(toast);
+      setTimeout(() => {
+        toast.style.opacity = '0';
+        setTimeout(() => toast.remove(), 400);
+      }, 3500);
+    }
+  </script>
+</body>
+</html>
