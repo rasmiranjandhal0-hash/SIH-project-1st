@@ -24,9 +24,18 @@ router.post('/', async (req, res) => {
       return res.status(400).json({ success: false, error: 'Product ID is required' });
     }
 
+    const orderQuantity = quantity === undefined ? 1 : Number(quantity);
+
+    if (!Number.isInteger(orderQuantity) || orderQuantity <= 0) {
+      return res.status(400).json({
+        success: false,
+        error: 'Quantity must be a positive integer'
+      });
+    }
+
     const order = await db.createOrder({
       productId,
-      quantity: Number(quantity) || 1,
+      quantity: orderQuantity,
       customerName: customerName || "Patron Collector",
       customerEmail: customerEmail || "buyer@kalasetu.org",
       customerPhone: customerPhone || "919876543210",
